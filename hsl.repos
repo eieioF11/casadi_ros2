@@ -1,0 +1,5 @@
+repositories:
+    hsl_vendor:
+        type: git
+        url: https://github.com/eieioF11/hsl_vendor.git
+        version: main
