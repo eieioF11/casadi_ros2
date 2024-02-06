@@ -26,31 +26,12 @@ colcon build --symlink-install --parallel-workers 3 --cmake-args -DCMAKE_BUILD_T
 echo "export LD_LIBRARY_PATH=$ROS_WORKSPACE/install/hsl_vendor/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
 ```
 ## Example
+### casadi c++
+https://distinct-radar-f22.notion.site/C-11371387a16d4b83a8b53a28d6e8bae9?pvs=4
 ### include
 ```c++
 // casadi
 #include "casadi/casadi.hpp"
-```
-### CMakeLists.txt
-```
-cmake_minimum_required(VERSION 3.5)
-project(mpc_path_planning)
-
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-endif()
-
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
-
-# find dependencies
-find_package(ament_cmake_auto REQUIRED)
-ament_auto_find_build_dependencies()
-
-ament_auto_add_executable(${PROJECT_NAME} src/main.cpp)
-
-ament_auto_package()
 ```
 ### package.xml
 ```xml
@@ -85,4 +66,25 @@ ament_auto_package()
     <build_type>ament_cmake</build_type>
   </export>
 </package>
+```
+### CMakeLists.txt
+```
+cmake_minimum_required(VERSION 3.5)
+project(mpc_path_planning)
+
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake_auto REQUIRED)
+ament_auto_find_build_dependencies()
+
+ament_auto_add_executable(${PROJECT_NAME} src/main.cpp)
+
+ament_auto_package()
 ```
