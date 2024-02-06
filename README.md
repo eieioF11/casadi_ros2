@@ -22,7 +22,6 @@ colcon build --symlink-install --parallel-workers 3 --cmake-args -DCMAKE_BUILD_T
 git clone https://github.com/eieioF11/casadi_ros2.git
 cd casadi_ros2
 vcs import --recursive < hsl.repos
-vcs pull hsl
 colcon build --symlink-install --parallel-workers 3 --cmake-args -DCMAKE_BUILD_TYPE=Release
 echo "export LD_LIBRARY_PATH=$ROS_WORKSPACE/install/hsl_vendor/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
 ```
